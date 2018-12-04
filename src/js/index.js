@@ -176,7 +176,7 @@ const controlLike = () => {
 		likesView.toggleLikeBtn(false);
 
 		// Remove liked from UI list
-		likesView.renderLike(currentID);
+		likesView.deleteLike(currentID);
 	}
 	likesView.toggleLikeMenu(state.likes.getNumLikes());
 };
