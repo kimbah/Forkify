@@ -7,7 +7,8 @@ export const clearRecipe = () => {
 
 const formatCount = (count) => {
 	if (count) {
-		//  count 2.5 --> 2 1/2
+		// count = 2.5 --> 2 1/2
+		// count = 0.5 --> 1/2
 		const [ int, dec ] = count.toString().split('.').map((el) => parseInt(el, 10));
 
 		if (!dec) return count;
@@ -40,7 +41,7 @@ export const renderRecipe = (recipe, isLiked) => {
             <figure class="recipe__fig">
                 <img src="${recipe.img}" alt="${recipe.title}" class="recipe__img">
                 <h1 class="recipe__title">
-                    <span>${recipe.title}/span>
+                    <span>${recipe.title}</span>
                 </h1>
             </figure>
 
@@ -99,7 +100,7 @@ export const renderRecipe = (recipe, isLiked) => {
                     This recipe was carefully designed and tested by
                     <span class="recipe__by">${recipe.author}</span>. Please check out directions at their website.
                 </p>
-                <a class="btn-small recipe__btn" href="${recipe.url}"_blank">
+                <a class="btn-small recipe__btn" href="${recipe.url}" target="_blank">
                     <span>Directions</span>
                     <svg class="search__icon">
                         <use href="img/icons.svg#icon-triangle-right"></use>

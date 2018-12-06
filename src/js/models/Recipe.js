@@ -43,7 +43,7 @@ export default class Recipe {
 				ingredient = ingredient.replace(unit, unitsShort[i]);
 			});
 
-			// 2) Remove parenttheses
+			// 2) Remove parentheses
 			ingredient = ingredient.replace(/ *\([^)]*\) */g, ' ');
 
 			// 3) Parse ingredients into count, unit and ingredient
@@ -70,14 +70,14 @@ export default class Recipe {
 					ingredient: arrIng.slice(unitIndex + 1).join(' ')
 				};
 			} else if (parseInt(arrIng[0], 10)) {
-				// There is no unit, but the first element is a number
+				// There is NO unit, but the first element is a number
 				objIng = {
 					count: parseInt(arrIng[0], 10),
 					unit: '',
 					ingredient: arrIng.slice(1).join(' ')
 				};
 			} else if (unitIndex === -1) {
-				// There is NO unit and NO number is 1st postion
+				// There is NO unit and NO number in 1st postion
 				objIng = {
 					count: 1,
 					unit: '',
