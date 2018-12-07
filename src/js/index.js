@@ -15,9 +15,9 @@ import { elements, renderLoader, clearLoader } from './views/base';
 * - Liked recipes
 */
 
-// Testing
 const state = {};
-window.state = state;
+// Testing
+// window.state = state;
 
 /**
  * SEARCH CONTROLLER
@@ -117,7 +117,6 @@ const controlRecipe = async () => {
 /**
  * LIST CONTROLLER
 **/
-
 const controlList = () => {
 	// Create a new list IF there is none yet
 	if (!state.list) state.list = new List();
@@ -151,7 +150,7 @@ elements.shopping.addEventListener('click', (e) => {
  **/
 
 // FOR TESTING
-// state.likes = new Likes(); // FIXME: !! ALERT PROCESSING RECIPE ERROR IF REMOVED.
+// state.likes = new Likes();
 // likesView.toggleLikeMenu(state.likes.getNumLikes());
 
 const controlLike = () => {
@@ -219,4 +218,4 @@ elements.recipe.addEventListener('click', (e) => {
 	// console.log(state.recipe);
 });
 
-window.l = new List();
+// window.l = new List();
