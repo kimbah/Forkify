@@ -14,6 +14,8 @@ import { elements, renderLoader, clearLoader } from './views/base';
 * - Shopping list object
 * - Liked recipes
 */
+
+// Testing
 const state = {};
 window.state = state;
 
@@ -149,8 +151,8 @@ elements.shopping.addEventListener('click', (e) => {
  **/
 
 // FOR TESTING
-state.likes = new Likes(); // FIXME:
-likesView.toggleLikeMenu(state.likes.getNumLikes());
+// state.likes = new Likes(); // FIXME: !! ALERT PROCESSING RECIPE ERROR IF REMOVED.
+// likesView.toggleLikeMenu(state.likes.getNumLikes());
 
 const controlLike = () => {
 	if (!state.likes) state.likes = new Likes();
@@ -172,7 +174,7 @@ const controlLike = () => {
 		// Remove liked from the state
 		state.likes.deleteLike(currentID);
 
-		// Toggle the like button
+		// Toggle the like menu button
 		likesView.toggleLikeBtn(false);
 
 		// Remove liked from UI list
@@ -180,6 +182,20 @@ const controlLike = () => {
 	}
 	likesView.toggleLikeMenu(state.likes.getNumLikes());
 };
+
+// Restore liked recipes on page load
+window.addEventListener('load', () => {
+	state.likes = new Likes();
+
+	// Restore likes
+	state.likes.readStorage();
+
+	// Toggle the like menu button
+	likesView.toggleLikeMenu(state.likes.getNumLikes());
+
+	// Render the existing likes
+	state.likes.likes.forEach((like) => likesView.renderLike(like));
+});
 
 // Handling recipe button clicks
 elements.recipe.addEventListener('click', (e) => {
